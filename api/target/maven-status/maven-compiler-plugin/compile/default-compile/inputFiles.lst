@@ -1,0 +1,17 @@
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/controller/DisciplinaController.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/repository/DisciplinaRepository.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/AlunoOnlineApplication.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/repository/MatriculaAlunoRepository.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/controller/AlunoController.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/repository/ProfessorRepository.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/controller/MatriculaAlunoController.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/service/MatriculaAlunoService.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/service/AlunoService.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/model/Disciplina.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/service/ProfessorService.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/repository/AlunoRepository.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/service/DisciplinaService.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/model/Aluno.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/controller/ProfessorController.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/model/Professor.java
+/home/isthefanivit/Downloads/api/src/main/java/com/alunoonline/api/model/MatriculaAluno.java

@@ -26,6 +26,12 @@ public class AlunoService {
         return repository.findById(id);
     }
 
+    public Aluno update(Aluno aluno, Long id) {
+        Aluno alunoUpdated = findById(id);
+        alunoUpdated.setNome(alunoUpdated.getNome());
+        return repository.save(alunoUpdated);
+    }
+
     public void delete(Long id) {
         repository.deleteById(id);
     }

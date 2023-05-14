@@ -1,7 +1,7 @@
 package com.alunoonline.api.controller;
 
-import com.alunoonline.api.model.Aluno;
-import com.alunoonline.api.service.AlunoService;
+import com.alunoonline.api.model.Professor;
+import com.alunoonline.api.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,35 +11,29 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/aluno")
-public class AlunoController {
+@RequestMapping("/professor")
+public class ProfessorController {
 
     @Autowired
-    AlunoService service;
+    ProfessorService service;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Aluno> create(@RequestBody Aluno aluno) {
-        Aluno alunoCreated = service.create(aluno);
-        return ResponseEntity.status(201).body(alunoCreated);
+    public ResponseEntity<Professor> create(@RequestBody Professor professor) {
+        Professor professorCreated = service.create(professor);
+        return ResponseEntity.status(201).body(professorCreated);
     }
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<Aluno> findAll() {
+    public List<Professor> findAll() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Aluno> findById(@PathVariable Long id) {
+    public Optional<Professor> findById(@PathVariable Long id) {
         return service.findById(id);
-    }
-
-    @PutMapping(value = "{/id}")
-    public ResponseEntity<Aluno> update(@PathVariable Long id, @RequestBody Aluno aluno) {
-        Aluno alunoUpdated = service.update(aluno, id);
-        return ResponseEntity.ok().body(alunoUpdated);
     }
 
     @DeleteMapping("{id}")

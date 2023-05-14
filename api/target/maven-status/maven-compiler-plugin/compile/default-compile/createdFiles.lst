@@ -1,0 +1,4 @@
+com/alunoonline/api/service/MatriculaAlunoService.class
+com/alunoonline/api/repository/MatriculaAlunoRepository.class
+com/alunoonline/api/controller/MatriculaAlunoController.class
+com/alunoonline/api/model/MatriculaAluno.class
