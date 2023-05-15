@@ -36,10 +36,11 @@ public class AlunoController {
         return service.findById(id);
     }
 
-    @PutMapping(value = "{/id}")
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Aluno> update(@PathVariable Long id, @RequestBody Aluno aluno) {
-        Aluno alunoUpdated = service.update(aluno, id);
-        return ResponseEntity.ok().body(alunoUpdated);
+        Aluno alunoUpdated = service.update(id, aluno);
+        return ResponseEntity.status(201).body(alunoUpdated);
     }
 
     @DeleteMapping("{id}")
