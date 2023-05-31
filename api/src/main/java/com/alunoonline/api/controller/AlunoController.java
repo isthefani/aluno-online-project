@@ -40,10 +40,10 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Aluno> update(@PathVariable Long id, @RequestBody Aluno aluno) {
         Aluno alunoUpdated = service.update(id, aluno);
-        return ResponseEntity.status(201).body(alunoUpdated);
+        return ResponseEntity.status(200).body(alunoUpdated);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         service.delete(id);

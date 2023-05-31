@@ -1,6 +1,8 @@
 package com.alunoonline.api.controller;
 
+import com.alunoonline.api.model.Aluno;
 import com.alunoonline.api.model.MatriculaAluno;
+import com.alunoonline.api.model.dtos.UpdateGradesRequestDto;
 import com.alunoonline.api.service.MatriculaAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +18,15 @@ public class MatriculaAlunoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<MatriculaAluno> create(@RequestBody MatriculaAluno matriculaAluno) {
-        MatriculaAluno matriculaAlunoCreated = service.create(matriculaAluno);
+    public ResponseEntity<MatriculaAluno> create(@RequestBody MatriculaAluno matriculaAluno, Aluno aluno) {
+        MatriculaAluno matriculaAlunoCreated = service.create(matriculaAluno, aluno);
 
         return ResponseEntity.status(201).body(matriculaAlunoCreated);
+    }
+
+    @PatchMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void patch(@RequestBody UpdateGradesRequestDto gradesOnlyDto, @PathVariable Long id) {
+        service.updateGrades(gradesOnlyDto, id);
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/disciplina")
 public class DisciplinaController {
@@ -20,5 +23,29 @@ public class DisciplinaController {
         Disciplina disciplinaCreated = service.create(disciplina);
 
         return ResponseEntity.status(201).body(disciplinaCreated);
+    }
+
+    @GetMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Disciplina> findAll() {
+        return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<Disciplina> findById(@PathVariable Long id) {
+        return service.findById(id);
+    }
+
+    @GetMapping("/professor/{professorId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Disciplina> findByProfessorId(@PathVariable Long professorId) {
+        return service.findByProfessorId(professorId);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(Long id) {
+        service.delete(id);
     }
 }

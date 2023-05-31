@@ -1,5 +1,6 @@
 package com.alunoonline.api.service;
 
+import com.alunoonline.api.model.Aluno;
 import com.alunoonline.api.model.Professor;
 import com.alunoonline.api.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,13 @@ public class ProfessorService {
         return repository.findById(id);
     }
 
-    public Professor update(Professor professor, Long id) {
-        return repository.save(professor);
+    public Professor update(Long id, Professor professorUpdated) {
+        Optional<Professor> optionalProfessor = repository.findById(id);
+        Professor professor = optionalProfessor.get();
+        professor.setEmail(professorUpdated.getEmail());
+        professor.setNome(professorUpdated.getNome());
+        Professor professorSaved = repository.save(professor);
+        return professorSaved;
     }
 
     public void delete(Long id) {
