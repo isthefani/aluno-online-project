@@ -2,6 +2,7 @@ package com.alunoonline.api.controller;
 
 import com.alunoonline.api.model.Aluno;
 import com.alunoonline.api.model.MatriculaAluno;
+import com.alunoonline.api.model.dtos.HistoricoAlunoDto;
 import com.alunoonline.api.model.dtos.UpdateGradesRequestDto;
 import com.alunoonline.api.service.MatriculaAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,21 @@ public class MatriculaAlunoController {
         return ResponseEntity.status(201).body(matriculaAlunoCreated);
     }
 
-    @PatchMapping
+    @PatchMapping("/update-grades/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateGrades(@RequestBody UpdateGradesRequestDto updateGradesRequestDto, @PathVariable Long id) {
+        service.updateGrades(updateGradesRequestDto, id);
+    }
+
+    @PatchMapping("/update-status/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateStatusTrancado(@PathVariable Long id) {
+        service.updateStatusTrancado(id);
+    }
+
+    @GetMapping("/emitir-historico-aluno/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void patch(@RequestBody UpdateGradesRequestDto gradesOnlyDto, @PathVariable Long id) {
-        service.updateGrades(gradesOnlyDto, id);
+    public HistoricoAlunoDto emitirHistoricoDoAluno(@PathVariable Long id) {
+        return service.emitirHistoricoDoAluno(id);
     }
 }

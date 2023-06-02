@@ -18,6 +18,8 @@ public class MatriculaAluno implements Serializable {
     private Long id;
     private Double nota1;
     private Double nota2;
+    private Double media;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "aluno_id")
@@ -26,6 +28,4 @@ public class MatriculaAluno implements Serializable {
     @ManyToOne
     @JoinColumn(name = "disciplina_id")
     private Disciplina disciplina;
-
-    private String status;
 }
